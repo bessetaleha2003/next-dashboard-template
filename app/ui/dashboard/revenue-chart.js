@@ -8,23 +8,24 @@ import { lusitana } from '@/app/ui/fonts';
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 
-export default async function RevenueChart({ revenue }) {
+export default function RevenueChart({ revenue }) {
   const chartHeight = 350;
-  // NOTE: Uncomment this code in Chapter 7
 
-  // const { yAxisLabels, topLabel } = generateYAxis(revenue);
+  // Aktifkan kode untuk mengenerate label sumbu Y dan topLabel
+  const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
-  // if (!revenue || revenue.length === 0) {
-  //   return <p className="mt-4 text-gray-400">No data available.</p>;
-  // }
+  // Tampilkan pesan jika tidak ada data revenue
+  if (!revenue || revenue.length === 0) {
+    return <p className="mt-4 text-gray-400">No data available.</p>;
+  }
 
   return (
     <div className="w-full md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Recent Revenue
       </h2>
-      {/* NOTE: Uncomment this code in Chapter 7 */}
-      {/* <div className="p-4 rounded-xl bg-gray-50">
+
+      <div className="p-4 rounded-xl bg-gray-50">
         <div className="grid items-end grid-cols-12 gap-2 p-4 mt-0 bg-white rounded-md sm:grid-cols-13 md:gap-4">
           <div
             className="flex-col justify-between hidden mb-6 text-sm text-gray-400 sm:flex"
@@ -51,9 +52,9 @@ export default async function RevenueChart({ revenue }) {
         </div>
         <div className="flex items-center pt-6 pb-2">
           <CalendarIcon className="w-5 h-5 text-gray-500" />
-          <h3 className="ml-2 text-sm text-gray-500 ">Last 12 months</h3>
+          <h3 className="ml-2 text-sm text-gray-500">Last 12 months</h3>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
