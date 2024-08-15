@@ -1,18 +1,35 @@
+<<<<<<< HEAD
+=======
+// /app/dashboard/page.jsx
+>>>>>>> 75c8c1ae91c6fad3449b5f06d25afb046cc13e79
 import { Card } from "@/app/ui/dashboard/cards";
 import RevenueChart from "@/app/ui/dashboard/revenue-chart";
 import LatestInvoices from "@/app/ui/dashboard/latest-invoices";
 import { lusitana } from "@/app/ui/fonts";
+<<<<<<< HEAD
 import { fetchRevenue, fetchLatestInvoices, fetchCardData } from "@/app/lib/data";
+=======
+import { fetchRevenue, fetchLatestInvoices } from "@/app/lib/data";
+>>>>>>> 75c8c1ae91c6fad3449b5f06d25afb046cc13e79
 
 export default async function Page() {
   const revenue = await fetchRevenue();
   const latestInvoices = await fetchLatestInvoices();
+<<<<<<< HEAD
   const {
     numberOfInvoices,
     numberOfCustomers,
     totalPaidInvoices,
     totalPendingInvoices,
   } = await fetchCardData();
+=======
+
+  const totalPaidInvoices = revenue.totalPaidInvoices; 
+  const totalPendingInvoices = revenue.totalPendingInvoices; 
+  const numberOfInvoices = latestInvoices.length; 
+  const numberOfCustomers = revenue.totalCustomers; 
+
+>>>>>>> 75c8c1ae91c6fad3449b5f06d25afb046cc13e79
   return (
     <main>
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
@@ -24,10 +41,20 @@ export default async function Page() {
         <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
         <Card title="Total Customers" value={numberOfCustomers} type="customers" />
       </div>
+<<<<<<< HEAD
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <RevenueChart revenue={revenue}  />
+=======
+      
+      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+        <RevenueChart revenue={revenue} />
+>>>>>>> 75c8c1ae91c6fad3449b5f06d25afb046cc13e79
         <LatestInvoices latestInvoices={latestInvoices} />
       </div>
     </main>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 75c8c1ae91c6fad3449b5f06d25afb046cc13e79
