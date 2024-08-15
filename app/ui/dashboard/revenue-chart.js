@@ -1,6 +1,7 @@
 import { generateYAxis } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
+import { fetchRevenue } from "@/app/lib/data";
 
 // This component is representational only.
 // For data visualization UI, check out:
@@ -8,18 +9,11 @@ import { lusitana } from '@/app/ui/fonts';
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 
-export default function RevenueChart({ revenue }) {
+export default async function RevenueChart() {
+  const revenue = await fetchRevenue();
   const chartHeight = 350;
-
-<<<<<<< HEAD
   const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
-=======
-  // Aktifkan kode untuk mengenerate label sumbu Y dan topLabel
-  const { yAxisLabels, topLabel } = generateYAxis(revenue);
-
-  // Tampilkan pesan jika tidak ada data revenue
->>>>>>> 75c8c1ae91c6fad3449b5f06d25afb046cc13e79
   if (!revenue || revenue.length === 0) {
     return <p className="mt-4 text-gray-400">No data available.</p>;
   }
@@ -29,11 +23,8 @@ export default function RevenueChart({ revenue }) {
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Recent Revenue
       </h2>
-<<<<<<< HEAD
-      {/* NOTE: Uncomment this code in Chapter 7 */}
-=======
 
->>>>>>> 75c8c1ae91c6fad3449b5f06d25afb046cc13e79
+      {/* NOTE: Uncomment this code in Chapter 7 */}
       <div className="p-4 rounded-xl bg-gray-50">
         <div className="grid items-end grid-cols-12 gap-2 p-4 mt-0 bg-white rounded-md sm:grid-cols-13 md:gap-4">
           <div
