@@ -4,8 +4,15 @@ import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import { fetchLatestInvoices } from '@/app/lib/data';
 
+<<<<<<< HEAD
 export default async function LatestInvoices() {
   const latestInvoices = await fetchLatestInvoices()
+=======
+export default function LatestInvoices({ latestInvoices }) {
+  const LatestInvoices = ({ latestInvoices }) => {
+    if (!Array.isArray(latestInvoices) || latestInvoices.length === 0) {
+    }
+>>>>>>> 06be8efe1f157165ab3e355a91c38db870fbc609
   return (
     <div className="flex flex-col w-full md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
@@ -26,7 +33,7 @@ export default async function LatestInvoices() {
                   },
                 )}
               >
-                <div className="flex items-center">
+                 <div className="flex items-center">
                   <Image
                     src={invoice.image_url}
                     alt={`${invoice.name}'s profile picture`}
@@ -59,4 +66,5 @@ export default async function LatestInvoices() {
       </div>
     </div>
   );
+  }
 }
